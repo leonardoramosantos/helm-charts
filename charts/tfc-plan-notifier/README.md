@@ -1,6 +1,6 @@
 # tfc-plan-notifier
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 A Helm chart for a CronJob of the TerraformCloud Plan Notifier
 
@@ -10,20 +10,21 @@ A Helm chart for a CronJob of the TerraformCloud Plan Notifier
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
 | fullnameOverride | string | `""` | Set if changing the release and deploy names are needed |
-| image | object | `{"pullPolicy":"IfNotPresent","repository":"leonardoramosantos/tfc_plan_notifier","tag":"v1.0"}` | Image configurations to run |
+| image | object | `{"pullPolicy":"IfNotPresent","repository":"leonardoramosantos/tfc_plan_notifier","tag":"latest"}` | Image configurations to run |
 | image.pullPolicy | string | `"IfNotPresent"` | Pull Policy |
 | image.repository | string | `"leonardoramosantos/tfc_plan_notifier"` | Repository of the image |
-| image.tag | string | `"v1.0"` | Overrides the image tag whose default is the chart appVersion. |
+| image.tag | string | `"latest"` | Overrides the image tag whose default is the chart appVersion. |
 | imagePullSecrets | list | `[]` | Pull secrets to get private images |
+| logLevel | string | `"INFO"` |  |
 | nameOverride | string | `""` | Set if changing the release and deploy names are needed |
 | nodeSelector | object | `{}` |  |
-| nofitierConfig | object | `{"config-plan":[{"interval":"PT5M","organization":".*","slack-notifications":[{"channels":["tfcplannotifier_5m"],"token":"<SLACK_TOKEN>"}],"workspace":".*"}],"tfc-token":"<TERRAFORM_FORM>"}` | Settings to run plans |
-| nofitierConfig.config-plan | list | `[{"interval":"PT5M","organization":".*","slack-notifications":[{"channels":["tfcplannotifier_5m"],"token":"<SLACK_TOKEN>"}],"workspace":".*"}]` | Plan to run agains terraform. Multiple plans can be specified |
-| nofitierConfig.config-plan[0] | object | `{"interval":"PT5M","organization":".*","slack-notifications":[{"channels":["tfcplannotifier_5m"],"token":"<SLACK_TOKEN>"}],"workspace":".*"}` | ISO 8601 Duration string specifying how old a plan should be to warn |
-| nofitierConfig.config-plan[0].organization | string | `".*"` | RegExp to filter Terraform Organizations |
-| nofitierConfig.config-plan[0].slack-notifications[0] | object | `{"channels":["tfcplannotifier_5m"],"token":"<SLACK_TOKEN>"}` | Slack token |
-| nofitierConfig.config-plan[0].slack-notifications[0].channels | list | `["tfcplannotifier_5m"]` | List of string names of the channels to send warnings |
-| nofitierConfig.config-plan[0].workspace | string | `".*"` | RegExp to filter Terraform Workspaces |
+| nofitierConfig | object | `{"scans":[{"interval":"PT5M","organization":".*","slack-notifications":[{"channels":["tfcplannotifier_5m"],"token":"<SLACK_TOKEN>"}],"workspace":".*"}],"tfc-token":"<TERRAFORM_FORM>"}` | Settings to run plans |
+| nofitierConfig.scans | list | `[{"interval":"PT5M","organization":".*","slack-notifications":[{"channels":["tfcplannotifier_5m"],"token":"<SLACK_TOKEN>"}],"workspace":".*"}]` | Plan to run agains terraform. Multiple plans can be specified |
+| nofitierConfig.scans[0] | object | `{"interval":"PT5M","organization":".*","slack-notifications":[{"channels":["tfcplannotifier_5m"],"token":"<SLACK_TOKEN>"}],"workspace":".*"}` | ISO 8601 Duration string specifying how old a plan should be to warn |
+| nofitierConfig.scans[0].organization | string | `".*"` | RegExp to filter Terraform Organizations |
+| nofitierConfig.scans[0].slack-notifications[0] | object | `{"channels":["tfcplannotifier_5m"],"token":"<SLACK_TOKEN>"}` | Slack token |
+| nofitierConfig.scans[0].slack-notifications[0].channels | list | `["tfcplannotifier_5m"]` | List of string names of the channels to send warnings |
+| nofitierConfig.scans[0].workspace | string | `".*"` | RegExp to filter Terraform Workspaces |
 | nofitierConfig.tfc-token | string | `"<TERRAFORM_FORM>"` | Not required. The plain text token to access Terraform API. If not specified, terraformToken must be set |
 | podSecurityContext | object | `{}` |  |
 | resources | object | `{}` |  |

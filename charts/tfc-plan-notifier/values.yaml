@@ -12,7 +12,7 @@ nofitierConfig:
   # -- Not required. The plain text token to access Terraform API. If not specified, terraformToken must be set
   tfc-token: <TERRAFORM_FORM>
   # -- Plan to run agains terraform. Multiple plans can be specified
-  config-plan:
+  scans:
       # -- ISO 8601 Duration string specifying how old a plan should be to warn
     - interval: "PT5M"
       # -- RegExp to filter Terraform Organizations
@@ -33,7 +33,7 @@ image:
   # -- Pull Policy
   pullPolicy: IfNotPresent
   # -- Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0"
+  tag: "latest"
 
 # -- Pull secrets to get private images
 imagePullSecrets: []
@@ -80,3 +80,5 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+logLevel: "INFO"
