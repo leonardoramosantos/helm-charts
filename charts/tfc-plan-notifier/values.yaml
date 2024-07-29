@@ -13,8 +13,10 @@ nofitierConfig:
   tfc-token: <TERRAFORM_FORM>
   # -- Plan to run agains terraform. Multiple plans can be specified
   scans:
-      # -- ISO 8601 Duration string specifying how old a plan should be to warn
-    - interval: "PT5M"
+      # -- ISO 8601 Duration string specifying how old a waiting plan should be to warn. If Empty, waiting plans will not be warned
+    - waiting-approval-interval: "PT5M"
+      # -- ISO 8601 Duration string specifying how old a errored plan should be to warn. If Empty, errored plans will not be warned
+      errored-plan-interval: "PT5M"
       # -- RegExp to filter Terraform Organizations
       organization: ".*"
       # -- RegExp to filter Terraform Workspaces
@@ -24,7 +26,8 @@ nofitierConfig:
         - token: <SLACK_TOKEN>
           # -- List of string names of the channels to send warnings
           channels:
-          - tfcplannotifier_5m
+          - <SLACK_CHANNEL>
+          - <SLACK_CHANNEL>
 
 # -- Image configurations to run
 image:
