@@ -4,6 +4,6 @@ description: A Helm chart for a CronJob of the TerraformCloud Plan Notifier
 
 type: application
 
-version: 1.0.2
+version: 1.0.3
 
-appVersion: "1.2"
+appVersion: "1.3"
