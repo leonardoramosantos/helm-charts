@@ -1,6 +1,6 @@
 # tfc-plan-notifier
 
-![Version: 1.0.2](https://img.shields.io/badge/Version-1.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.2](https://img.shields.io/badge/AppVersion-1.2-informational?style=flat-square)
+![Version: 1.0.4](https://img.shields.io/badge/Version-1.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.3](https://img.shields.io/badge/AppVersion-1.3-informational?style=flat-square)
 
 A Helm chart for a CronJob of the TerraformCloud Plan Notifier
 
@@ -18,15 +18,15 @@ A Helm chart for a CronJob of the TerraformCloud Plan Notifier
 | logLevel | string | `"INFO"` |  |
 | nameOverride | string | `""` | Set if changing the release and deploy names are needed |
 | nodeSelector | object | `{}` |  |
-| nofitierConfig | object | `{"scans":[{"errored-plan-interval":"PT5M","organization":".*","slack-notifications":[{"channels":["<SLACK_CHANNEL>","<SLACK_CHANNEL>"],"token":"<SLACK_TOKEN>"}],"waiting-approval-interval":"PT5M","workspace":".*"}],"tfc-token":"<TERRAFORM_FORM>"}` | Settings to run plans |
-| nofitierConfig.scans | list | `[{"errored-plan-interval":"PT5M","organization":".*","slack-notifications":[{"channels":["<SLACK_CHANNEL>","<SLACK_CHANNEL>"],"token":"<SLACK_TOKEN>"}],"waiting-approval-interval":"PT5M","workspace":".*"}]` | Plan to run agains terraform. Multiple plans can be specified |
-| nofitierConfig.scans[0] | object | `{"errored-plan-interval":"PT5M","organization":".*","slack-notifications":[{"channels":["<SLACK_CHANNEL>","<SLACK_CHANNEL>"],"token":"<SLACK_TOKEN>"}],"waiting-approval-interval":"PT5M","workspace":".*"}` | ISO 8601 Duration string specifying how old a waiting plan should be to warn. If Empty, waiting plans will not be warned |
+| nofitierConfig | object | `{"scans":[{"errored-plan-interval":"PT5M","organization":".*","slack-notifications":[{"channels":[""],"token":""}],"waiting-approval-interval":"PT5M","workspace":".*"}],"tfc-token":""}` | Settings to run plans |
+| nofitierConfig.scans | list | `[{"errored-plan-interval":"PT5M","organization":".*","slack-notifications":[{"channels":[""],"token":""}],"waiting-approval-interval":"PT5M","workspace":".*"}]` | Plan to run agains terraform. Multiple plans can be specified |
+| nofitierConfig.scans[0] | object | `{"errored-plan-interval":"PT5M","organization":".*","slack-notifications":[{"channels":[""],"token":""}],"waiting-approval-interval":"PT5M","workspace":".*"}` | ISO 8601 Duration string specifying how old a waiting plan should be to warn. If Empty, waiting plans will not be warned |
 | nofitierConfig.scans[0].errored-plan-interval | string | `"PT5M"` | ISO 8601 Duration string specifying how old a errored plan should be to warn. If Empty, errored plans will not be warned |
 | nofitierConfig.scans[0].organization | string | `".*"` | RegExp to filter Terraform Organizations |
-| nofitierConfig.scans[0].slack-notifications[0] | object | `{"channels":["<SLACK_CHANNEL>","<SLACK_CHANNEL>"],"token":"<SLACK_TOKEN>"}` | Slack token |
-| nofitierConfig.scans[0].slack-notifications[0].channels | list | `["<SLACK_CHANNEL>","<SLACK_CHANNEL>"]` | List of string names of the channels to send warnings |
+| nofitierConfig.scans[0].slack-notifications[0] | object | `{"channels":[""],"token":""}` | Slack token |
+| nofitierConfig.scans[0].slack-notifications[0].channels | list | `[""]` | List of string names of the channels to send warnings |
 | nofitierConfig.scans[0].workspace | string | `".*"` | RegExp to filter Terraform Workspaces |
-| nofitierConfig.tfc-token | string | `"<TERRAFORM_FORM>"` | Not required. The plain text token to access Terraform API. If not specified, terraformToken must be set |
+| nofitierConfig.tfc-token | string | `""` | Not required. The plain text token to access Terraform API. If not specified, terraformToken must be set |
 | podSecurityContext | object | `{}` |  |
 | resources | object | `{}` |  |
 | schedule | string | `"*/10 * * * *"` | Cronjob schedule for the application to run |
