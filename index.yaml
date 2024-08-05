@@ -3,6 +3,16 @@ entries:
   tfc-plan-notifier:
   - apiVersion: v2
     appVersion: "1.3"
+    created: "2024-08-05T14:03:00.972020371Z"
+    description: A Helm chart for a CronJob of the TerraformCloud Plan Notifier
+    digest: 1fdfc1f59ba1694df8a22ac679ebdbd1233a398d868f38d437ea9d7b447e3dc4
+    name: tfc-plan-notifier
+    type: application
+    urls:
+    - https://github.com/leonardoramosantos/helm-charts/releases/download/tfc-plan-notifier-1.0.4/tfc-plan-notifier-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
+    appVersion: "1.3"
     created: "2024-08-02T14:39:54.567220787Z"
     description: A Helm chart for a CronJob of the TerraformCloud Plan Notifier
     digest: 3709498b84a897980c32b399b916d3680eafd6f17d23c0a85879f025f75e1312
@@ -41,4 +51,4 @@ entries:
     urls:
     - https://github.com/leonardoramosantos/helm-charts/releases/download/tfc-plan-notifier-1.0.0/tfc-plan-notifier-1.0.0.tgz
     version: 1.0.0
-generated: "2024-08-02T14:39:54.567241536Z"
+generated: "2024-08-05T14:03:00.972045508Z"
