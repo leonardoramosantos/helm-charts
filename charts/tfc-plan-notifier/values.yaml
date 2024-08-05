@@ -10,7 +10,7 @@ schedule: "*/10 * * * *"
 # -- Settings to run plans
 nofitierConfig:
   # -- Not required. The plain text token to access Terraform API. If not specified, terraformToken must be set
-  tfc-token: <TERRAFORM_FORM>
+  tfc-token: ""
   # -- Plan to run agains terraform. Multiple plans can be specified
   scans:
       # -- ISO 8601 Duration string specifying how old a waiting plan should be to warn. If Empty, waiting plans will not be warned
@@ -23,11 +23,10 @@ nofitierConfig:
       workspace: ".*"
       slack-notifications:
           # -- Slack token
-        - token: <SLACK_TOKEN>
+        - token: ""
           # -- List of string names of the channels to send warnings
           channels:
-          - <SLACK_CHANNEL>
-          - <SLACK_CHANNEL>
+          - ""
 
 # -- Image configurations to run
 image:
